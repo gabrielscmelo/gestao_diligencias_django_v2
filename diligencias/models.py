@@ -17,4 +17,3 @@ class Diligencia(models.Model):
     def __str__(self):
         return self.diligencia
 
-# Create your models here.
