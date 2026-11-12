@@ -1,11 +1,11 @@
 from django.db import models
 
-class Diligencias(models.Model):
-    saj = models.CharField("SAJ", max_length=50, null=False, blank=False)
-    diligencia = models.CharField("Diligência", max_length=255, null=False, blank=False)
-    data_envio = models.DateTimeField("Envio", auto_now_add=True)
-    sei = models.CharField("SEI", max_length=50, null=False, blank=False)
-    secretaria = models.CharField("Secretaria", max_length=50, null=False, blank=False)
+class Diligencia(models.Model):
+    saj = models.CharField("SAJ", max_length=50, blank=True)
+    diligencia = models.CharField("Diligência", max_length=255)
+    data_envio = models.DateField("Envio", null=True, blank=True)
+    sei = models.CharField("SEI", max_length=50, null=False, blank=True)
+    secretaria = models.CharField("Secretaria", max_length=100, null=False, blank=True)
     prazo = models.DateField("Prazo", null=True, blank=True)
     resposta = models.TextField("Resposta", null=True, blank=True)
     inserido = models.DateField("Inserido", null=True, blank=True)
