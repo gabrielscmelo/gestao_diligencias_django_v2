@@ -1,0 +1,29 @@
+<h1>Diligências</h1>
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>Diligência</th>
+            <th>SAJ</th>
+            <th>SEI</th>
+            <th>Secretaria</th>
+            <th>Status</th>
+            <th>Prazo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in object_list %}
+        <tr>
+            <td>{{ d.diligencia }}</td>
+            <td>{{ d.saj}}</td>
+            <td>{{ d.sei}}</td>
+            <td>{{ d.secretaria}}</td>
+            <td>{{ d.get_status_display }}</td>
+            <td>{{ d.prazo|date:"d/m/Y" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhuma diligência cadastrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

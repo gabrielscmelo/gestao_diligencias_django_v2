@@ -6,6 +6,7 @@ class Diligencia(models.Model):
     class Status(models.TextChoices):
         PENDENTE = "PENDENTE", "Pendente"
         CONCLUIDO = "CONCLUÍDO", "Concluído"
+        AG_RESPOSTA = "AG_RESPOSTA", "Aguardando Resposta"
 
 
     saj = models.CharField("SAJ", max_length=50, blank=True)
@@ -23,9 +24,9 @@ class Diligencia(models.Model):
     criado_em = models.DateTimeField("Criado em", auto_now_add=True)
     atualizado_em = models.DateTimeField("Atualizado em", auto_now=True)
 
-class Meta:
-    verbose_name = "diligência"
-    verbose_name_plural = "diligências"
+    class Meta:
+        verbose_name = "diligência"
+        verbose_name_plural = "diligências"
 
  
 
