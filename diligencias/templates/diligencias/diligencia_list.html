@@ -1,7 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'diligencias:nova' %}">Nova diligência</a>
 <h1>Diligências</h1>
 <table border="1" cellpadding="6">
     <thead>
         <tr>
+            <th>Ações</th>
             <th>Diligência</th>
             <th>SAJ</th>
             <th>SEI</th>
@@ -13,11 +18,17 @@
     <tbody>
         {% for d in object_list %}
         <tr>
+            <td><a href="{% url 'diligencias:editar' d.pk %}">Editar</a></td>
             <td>{{ d.diligencia }}</td>
+
             <td>{{ d.saj}}</td>
+
             <td>{{ d.sei}}</td>
+
             <td>{{ d.secretaria}}</td>
+
             <td>{{ d.get_status_display }}</td>
+
             <td>{{ d.prazo|date:"d/m/Y" }}</td>
         </tr>
         {% empty %}
@@ -27,3 +38,5 @@
         {% endfor %}
     </tbody>
 </table>
+
+{% endblock %}
